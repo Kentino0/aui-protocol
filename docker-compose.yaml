@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  context-service:
+    build: ./context-service
+    container_name: aui-context-service
+    ports:
+      - "8001:8001"
+
+  ai-orchestrator:
+    build: ./ai-orchestrator
+    container_name: aui-ai-orchestrator
+    ports:
+      - "8002:8002"
+
+  feedback-service:
+    build: ./feedback-service
+    container_name: aui-feedback-service
+    ports:
+      - "8003:8003"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: aui-frontend
+    ports:
+      - "3000:3000"
